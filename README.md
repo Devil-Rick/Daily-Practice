@@ -5,3 +5,6 @@
   * Creating a tip calculator using basic python code 
 #### Day 3 : 
   * Creating a Treasure hunt game using pure conditional statements
+#### Day 4 : 
+  * Created a Simple Rock Paper Scissor Game 
+  * Used Functions , Conditional Statements and Random module
