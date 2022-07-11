@@ -8,3 +8,6 @@
 #### Day 4 : 
   * Created a Simple Rock Paper Scissor Game 
   * Used Functions , Conditional Statements and Random module
+#### Day 5 : 
+  * Created a Python based **Password Generator**
+  * Using Conditional Statements and Random module
