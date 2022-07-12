@@ -11,3 +11,5 @@
 #### Day 5 : 
   * Created a Python based **Password Generator**
   * Using Conditional Statements and Random module
+#### Day 6 : 
+  * Played around with reeborg 
