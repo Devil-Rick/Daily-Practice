@@ -1,6 +1,7 @@
 import random as r
 import HangmanArts as ha
 import HangmanWords as hw
+from replit import clear
 
 print(ha.logo)
 print('WELCOME to World of Hangman')
@@ -20,6 +21,7 @@ try:
             break
         else:
             userchar = input('Enter any alphabet : ').upper()
+            clear()
             for i in range(len(word)):
                 if userchar == word[i]:
                     solution[i] = word[i]
