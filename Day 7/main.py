@@ -33,4 +33,5 @@ try:
     if '_' not in solution and lives > 0:
         print("Congratulations you have completed the game")
 except:
+    
     print('Run again .... Server Error\nSorry the GAME Crashed')
