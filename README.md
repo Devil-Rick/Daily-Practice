@@ -7,9 +7,9 @@
   * Creating a **Treasure hunt game** using pure conditional statements
 #### Day 4 : 
   * Created a Simple **Rock Paper Scissor Game**
-  * Used Functions , Conditional Statements and Random module
 #### Day 5 : 
   * Created a Python based **Password Generator**
-  * Using Conditional Statements and Random module
 #### Day 6 : 
   * Played around with reeborg 
+#### Day 7 : 
+  * Created a Command Line based **Hangman Game**
