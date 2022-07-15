@@ -15,5 +15,7 @@
   * Created a Command Line based **Hangman Game**
 #### Day 8 : 
   * Created a Command Line based **Ceaser Cipher**
-  #### Day 8 : 
+#### Day 9 : 
   * Created a Command Line based **Auction Bid**
+#### Day 9 : 
+  * Created a Command Line based **Simple Calculator**
