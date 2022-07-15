@@ -21,10 +21,10 @@ try:
         if again == "n":
             rep.clear()
             print(lg.logo, "\n\n")
-            num1 = int(input("What's the 1st number ? : "))
+            num1 = float(input("What's the 1st number ? : "))
         print("+\n-\n*\n/")
         operation = input("Pick an operation : ")
-        num2 = int(input("What's the 2nd number ? : "))
+        num2 = float(input("What's the 2nd number ? : "))
         answer = calculator(num1, num2, operation)
         num1 = answer
         again = input(
