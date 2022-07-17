@@ -21,3 +21,6 @@
   * Created a Command Line based **Simple Calculator**
 #### Day 11 :
   * Created a Command Line based **BlackJack Game**
+#### Day 11 :
+  * Created a Command Line based **Number Guessing Game**
+  * Tried to provide some hints to make the game better at functioning
