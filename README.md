@@ -24,3 +24,10 @@
 #### Day 12 :
   * Created a Command Line based **Number Guessing Game**
   * Tried to provide some hints to make the game better at functioning
+  #### Day 13 :
+  * No practical projects today
+  * Learning about **Debugging** a python module or file
+  #### Day 14 :
+  * Created a Command Line based **Higher Lower game**
+  * This game is about choosing which of the two entries have a higher no. of followers.
+  * The data is hypothetical.
