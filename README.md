@@ -1,4 +1,4 @@
-# 100 Projects - 100 Days
+# 80 Projects - 80 Days
 #### Day 1 : 
   * Creating a **Band Name Generator** using basic python code
 #### Day 2 : 
