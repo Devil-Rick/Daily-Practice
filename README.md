@@ -31,3 +31,7 @@
   * Created a Command Line based **Higher Lower game**
   * This game is about choosing which of the two entries have a higher no. of followers.
   * The data is hypothetical.
+  #### Day 15 :
+  * Created a Command Line based **Coffee Maker**
+  * This game is about choosing which of the two entries have a higher no. of followers.
+  * The data is hypothetical.
