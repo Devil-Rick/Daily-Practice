@@ -23,8 +23,7 @@ def coffee_items(item):
     return True, ""
 
 
-def make_coffee(coffee, money_q, money_d, money_n, money_p):
-    money_in = (money_q * 0.25) + (money_d * 0.10) + (money_n * 0.05) + (money_p * 0.01)
+def make_coffee(coffee, money_in):
     if coffee in data.MENU:
         available_price = price(money_in, coffee)
         available_resource = coffee_items(coffee)
