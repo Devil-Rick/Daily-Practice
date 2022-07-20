@@ -35,3 +35,8 @@
   * Created a Command Line based **Coffee Maker**
   * This game is about choosing which of the two entries have a higher no. of followers.
   * The data is hypothetical.
+  #### Day 17 :
+  * Created a Command Line based **Quiz Trivia Game**
+  * You can choose genre , difficulty and many exciting questions.
+  * This project is build up with the help of classes.
+  * The data is taken from different quiz sites.
