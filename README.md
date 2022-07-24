@@ -40,3 +40,6 @@
   * You can choose genre , difficulty and many exciting questions.
   * This project is build up with the help of classes.
   * The data is taken from different quiz sites.
+    #### Day 20 :
+  * Created a **Snake Game**
+  
