@@ -1,7 +1,7 @@
 from turtle import Screen
-from snake import Snake
-from food import Food
-from score import ScoreBoard
+from player import Player
+from game_ball import Ball
+from score_board import Score
 import time
 
 screen = Screen()
@@ -10,47 +10,46 @@ screen = Screen()
 ##           Screen Specifications             ##
 #################################################
 
-screen.bgcolor("#000")
-screen.colormode(255)
-screen.setup(width=600, height=600)
-screen.title("Feed THE Snake")
-screen.tracer(0)
+screen.bgcolor('#000')
+screen.setup(width=1000, height=600)
 screen.listen()
+screen.title("PING PONG GAME")
+screen.tracer(0)
 
 #################################################
-##           Snake Game Functioning            ##
+##           Game Functioning                ##
 #################################################
+player1 = Player((-480, 0))
+player2 = Player((480, 0))
+ball = Ball()
+score = Score()
 
+screen.onkey(fun=player1.up, key="w")
+screen.onkey(fun=player1.down, key="s")
+screen.onkey(fun=player2.up, key="Up")
+screen.onkey(fun=player2.down, key="Down")
 
-# Start Game
-snake = Snake()
-food = Food()
-score = ScoreBoard()
-
-screen.onkey(fun=snake.up, key="Up")
-screen.onkey(fun=snake.down, key="Down")
-screen.onkey(fun=snake.left, key="Left")
-screen.onkey(fun=snake.right, key="Right")
-
-stop = False
-while not stop:
+gameover = False
+while not gameover:
     screen.update()
-    time.sleep(0.1)
-    snake.move_snake()
+    ball.move()
+    time.sleep(ball.time)
 
-    if snake.head.distance(food) < 15:
-        food.refresh()
-        snake.increase_snake()
-        score.increase()
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
 
-    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 260 or snake.head.ycor() < -290:
-        stop = True
-        score.game_over()
+    if (ball.distance(player2) < 50 and ball.xcor() > 450) or (ball.distance(player1) < 50 and ball.xcor() < -450):
+        ball.bounce_x()
 
-    for snake_tail in snake.snake_body[1:]:
-        if snake.head.distance(snake_tail) < 10:
-            stop = True
-            score.game_over()
+    if ball.xcor() > 480:
+        score.increase_p1()
+        ball.restart()
+    elif ball.xcor() < -480:
+        score.increase_p2()
+        ball.restart()
+
+    if score.game_over():
+        gameover = True
 
 
 screen.exitonclick()
