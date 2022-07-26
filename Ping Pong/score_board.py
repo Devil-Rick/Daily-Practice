@@ -31,7 +31,7 @@ class Score(Turtle):
         self.show_score()
 
     def game_over(self):
-        if self.p1_score == 1 or self.p2_score == 1:
+        if self.p1_score == 15 or self.p2_score == 15:
             self.goto(0, 0)
             self.write(f'GAME OVER', align=SCORE_POSITION, font=SCORE_FONT)
             if self.p1_score > self.p2_score:

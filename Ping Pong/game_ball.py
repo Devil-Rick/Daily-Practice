@@ -3,12 +3,13 @@ from turtle import Turtle
 
 class Ball(Turtle):
     y_inc = 15
-    x_inc = 15  # 17
+    x_inc = 15
 
     def __init__(self):
         super().__init__()
         self.shape("circle")
         self.color("#fff")
+        self.time = 0.1
         self.penup()
 
     def move(self):
@@ -21,8 +22,13 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_inc *= -1
+        self.speed_inc()
+
+    def speed_inc(self):
+        self.time *= 0.9
 
     def restart(self):
         self.x_inc *= -1
         self.y_inc = 15
         self.setpos(0, 0)
+        self.time = 0.1

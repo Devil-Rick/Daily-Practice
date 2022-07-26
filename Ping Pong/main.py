@@ -33,7 +33,7 @@ gameover = False
 while not gameover:
     screen.update()
     ball.move()
-    time.sleep(0.1)
+    time.sleep(ball.time)
 
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
