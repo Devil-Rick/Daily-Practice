@@ -3,6 +3,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import random as rn
 import pyperclip
+import json
 
 # ---------------------------- CONSTANTS ------------------------------- #
 BACKGROUND = "#fffa8d"
@@ -13,6 +14,24 @@ a_z = range(97, 123)
 NUMBERS = range(48, 57)
 SPECIAL = ["!", "@", "#", "$", "%", "&"]
 PASS_CHAR = [A_Z, a_z, NUMBERS, SPECIAL]
+
+
+# ---------------------------- SEARCH EMAIL PASSWORD ------------------------------- #
+def search():
+    try:
+        with open("data.json", "r") as data:
+            new_data = json.load(data)
+            website = new_data[website_entry.get().capitalize()]
+            if website:
+                messagebox.showinfo(title=f"{website_entry.get()} Credentials",
+                                    message=f"Email : {website['email']}\nPassword : {website['password']}")
+            else:
+                messagebox.showinfo(title="Invalid File Path",
+                                    message="No Website Exist",
+                                    icon='error')
+    except FileNotFoundError:
+        messagebox.showinfo(title="Invalid File Path",
+                            message="No Data File Found")
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -33,17 +52,32 @@ def pass_generator():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
-    if len(website_entry.get()) == 0 or len(website_entry.get()) == 0 or len(website_entry.get()) == 0:
-        messagebox.showinfo(title="Invalid Input", message="All the columns are necessary", icon="error")
+    entry_dict = {website_entry.get().capitalize(): {
+        "email": email_entry.get(),
+        "password": password_entry.get()
+    }
+    }
+    if len(website_entry.get()) == 0 or len(email_entry.get()) == 0 or len(password_entry.get()) == 0:
+        messagebox.showinfo(title="Invalid Input",
+                            message="All the columns are necessary", icon="error")
     else:
         is_ok = messagebox.askokcancel(title="Confirm",
                                        icon="warning",
-                                       message=f"Check the details:\nWebsite: {website_entry.get()}\nEmail: {email_entry.get()}\nPassword: {password_entry.get()}")
+                                       message=f"Check the details:\nWebsite: {website_entry.get().capitalize()}\nEmail: {email_entry.get()}\nPassword: {password_entry.get()}")
         if is_ok:
-            with open("data.txt", "a") as data:
-                data.write(f"{website_entry.get()} || {email_entry.get()} || {password_entry.get()}\n")
-            password_entry.delete(0, END)
-            website_entry.delete(0, END)
+            try:
+                with open("data.json", "r") as data:  # reading and updating the dict
+                    new_data = json.load(data)
+                    new_data.update(entry_dict)
+            except FileNotFoundError:
+                with open("data.json", "w") as data:  # creating the file if it doesn't exist
+                    json.dump(entry_dict, data, indent=4)
+            else:
+                with open("data.json", "w") as data:  # writing the updated json file
+                    json.dump(new_data, data, indent=4)
+            finally:
+                password_entry.delete(0, END)
+                website_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -59,8 +93,11 @@ canvas.grid(row=0, column=1)
 
 website_name = Label(text="Website Name  ", font=(FONT_NAME, FONT_SIZE[0]), bg=BACKGROUND)
 website_name.grid(row=1, column=0)
-website_entry = Entry(textvariable=StringVar(), width=70)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(textvariable=StringVar(), width=51)
+website_entry.grid(row=1, column=1)
+
+btn_search = Button(text="Search", width=13, command=search)
+btn_search.grid(row=1, column=2)
 
 email = Label(text="Email/Username  ", font=(FONT_NAME, FONT_SIZE[0]), bg=BACKGROUND)
 email.grid(row=2, column=0, pady=10)
