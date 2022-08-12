@@ -1,4 +1,4 @@
-# 80 Projects - 80 Days
+# Daily practice codes
 #### Day 1 : 
   * Creating a **Band Name Generator** using basic python code
 #### Day 2 : 
